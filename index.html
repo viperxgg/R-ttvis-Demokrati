@@ -34,9 +34,6 @@ html { scroll-behavior: smooth; }
 .card-lift { transition: transform 0.25s ease-out, box-shadow 0.25s ease-out; }
 .card-lift:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(20,27,68,0.15); }
 .card-lift:active { transform: scale(0.98); }
-.news-card.is-active { border-color: rgba(59,76,168,0.42) !important; box-shadow: 0 18px 40px rgba(20,27,68,0.12); }
-.news-detail { display: none; }
-.news-detail.is-active, .news-detail:target { display: block; }
 .pill { transition: background 0.2s ease-out; }
 .pill:hover { background: rgba(255,255,255,0.12); }
 .foto-ph { position: absolute; top: 0; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, #E3E6F2 0 12px, #D6DAEC 12px 24px); color: #5A628C; font-weight: 600; font-size: 15px; text-align: center; padding: 12px; border-radius: inherit; }
@@ -297,63 +294,19 @@ html { scroll-behavior: smooth; }
   </div>
 </section>
 
-<section style="background:#FAF9F5;padding:clamp(64px,9vw,110px) clamp(16px,4vw,40px) clamp(48px,7vw,80px);">
+<section id="arbete" style="background:#FAF9F5;padding:clamp(64px,9vw,110px) clamp(16px,4vw,40px) clamp(48px,7vw,80px);">
   <div style="max-width:1160px;margin:0 auto;">
-    <div data-anim="up" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 40px;margin-bottom:clamp(28px,4.5vw,42px);">
-      <div>
-        <p style="margin:0;color:#BA7517;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;letter-spacing:0.14em;text-transform:uppercase;">Nyheter och besked</p>
-        <h2 style="margin:8px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5.5vw,58px);line-height:1;color:#1E2A5E;">Senaste nytt</h2>
+    <div data-anim="up" style="background:#FFFFFF;border:1px solid rgba(30,42,94,0.12);border-top:8px solid #F5A81E;border-radius:8px;padding:clamp(28px,5vw,56px);box-shadow:0 24px 60px rgba(20,27,68,0.10);display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,58px);align-items:center;justify-content:space-between;">
+      <div style="flex:1 1 420px;">
+        <p style="margin:0;color:#BA7517;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;letter-spacing:0.14em;text-transform:uppercase;">Vill du veta mer?</p>
+        <h2 style="margin:10px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(40px,6.5vw,72px);line-height:0.98;color:#1E2A5E;">Följ vårt arbete</h2>
+        <p style="margin:18px 0 0;font-size:20px;line-height:1.55;color:#3A4270;max-width:620px;">Läs Bykontraktet, följ våra uppdateringar och hör av dig om du vill bli medlem eller hjälpa till i din by.</p>
       </div>
-      <p style="margin:0;max-width:420px;font-size:18px;line-height:1.5;color:#3A4270;font-weight:600;">Klicka på ett kort för att läsa mer direkt här på sidan.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
-      <a data-anim="up" data-news-open="nyhet-rosson" href="#nyhet-rosson" class="card-lift news-card" aria-expanded="false" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.12);border-radius:12px;padding:26px 26px 30px;text-decoration:none;color:#1E2A5E;">
-        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">28 juni 2026</span>
-        <span style="display:block;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1.12;">Vårt svar på det öppna brevet från Rossön</span>
-        <span style="display:inline-block;margin-top:18px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;color:#3B4CA8;border-bottom:3px solid #F5A81E;padding-bottom:1px;">Läs mer <span data-arrow="1" style="display:inline-block;">→</span></span>
-      </a>
-      <a data-anim="up" data-news-open="nyhet-hogstadiet" href="#nyhet-hogstadiet" class="card-lift news-card" aria-expanded="false" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.12);border-radius:12px;padding:26px 26px 30px;text-decoration:none;color:#1E2A5E;">
-        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">12 juni 2026</span>
-        <span style="display:block;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1.12;">Därför säger vi nej till flytt av högstadiet</span>
-        <span style="display:inline-block;margin-top:18px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;color:#3B4CA8;border-bottom:3px solid #F5A81E;padding-bottom:1px;">Läs mer <span data-arrow="1" style="display:inline-block;">→</span></span>
-      </a>
-      <a data-anim="up" data-news-open="nyhet-byaturnen" href="#nyhet-byaturnen" class="card-lift news-card" aria-expanded="false" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.12);border-radius:12px;padding:26px 26px 30px;text-decoration:none;color:#1E2A5E;">
-        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">2 juni 2026</span>
-        <span style="display:block;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1.12;">Byaturnén i augusti — vi kommer till din by</span>
-        <span style="display:inline-block;margin-top:18px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;color:#3B4CA8;border-bottom:3px solid #F5A81E;padding-bottom:1px;">Läs mer <span data-arrow="1" style="display:inline-block;">→</span></span>
-      </a>
-    </div>
-    <div data-news-details style="margin-top:clamp(26px,4vw,38px);">
-      <article id="nyhet-rosson" class="news-detail" style="background:#FFFFFF;border-left:8px solid #F5A81E;border-radius:8px;padding:clamp(24px,4vw,38px);box-shadow:0 18px 44px rgba(20,27,68,0.10);">
-        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">28 juni 2026</span>
-        <h3 style="margin:10px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(30px,4.5vw,42px);line-height:1.05;color:#1E2A5E;">Vårt svar på det öppna brevet från Rossön</h3>
-        <p style="margin:18px 0 0;font-size:19px;line-height:1.6;color:#3A4270;max-width:760px;">Vi tar oron i Rossön på allvar. När människor skriver öppet om service, skola och trygghet är det ett tecken på att kommunen måste lyssna bättre. Rättvis Demokrati vill att beslut som påverkar en by först ska diskuteras öppet med dem som bor där.</p>
-        <p style="margin:12px 0 0;font-size:19px;line-height:1.6;color:#3A4270;max-width:760px;">Vårt besked är enkelt: inga nedläggningar bakom stängda dörrar, ingen centralisering utan konsekvensanalys och tydlig redovisning by för by.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
-          <a data-btn="1" href="mailto:rattvisdemokrati@gmail.com?subject=Fr%C3%A5ga%20om%20Ross%C3%B6n" style="background:#1E2A5E;color:#FFFFFF;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;padding:12px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;">Kontakta oss <span data-arrow="1" style="display:inline-block;">→</span></a>
-          <a data-btn="1" href="assets/rattvis-demokrati-brochure.pdf" download="rattvis-demokrati-brochure.pdf" style="background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;padding:12px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;">Ladda ner PDF</a>
-        </div>
-      </article>
-      <article id="nyhet-hogstadiet" class="news-detail" style="background:#FFFFFF;border-left:8px solid #F5A81E;border-radius:8px;padding:clamp(24px,4vw,38px);box-shadow:0 18px 44px rgba(20,27,68,0.10);">
-        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">12 juni 2026</span>
-        <h3 style="margin:10px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(30px,4.5vw,42px);line-height:1.05;color:#1E2A5E;">Därför säger vi nej till flytt av högstadiet</h3>
-        <p style="margin:18px 0 0;font-size:19px;line-height:1.6;color:#3A4270;max-width:760px;">Barnen ska inte betala kommunens besparingar med längre dagar, mer buss och mindre trygghet. Högstadiet i Backe och Hoting är mer än lokaler - det är en del av vardagen för familjer, föreningsliv och byarnas framtid.</p>
-        <p style="margin:12px 0 0;font-size:19px;line-height:1.6;color:#3A4270;max-width:760px;">Vi säger nej till flytt och ja till en skolpolitik som räknar hela kostnaden: restid, arbetsro, personal, familjeliv och bygdens möjlighet att växa.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
-          <a data-btn="1" href="#kontraktet" style="background:#1E2A5E;color:#FFFFFF;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;padding:12px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;">Läs Bykontraktet <span data-arrow="1" style="display:inline-block;">→</span></a>
-          <a data-btn="1" href="assets/rattvis-demokrati-brochure.pdf" download="rattvis-demokrati-brochure.pdf" style="background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;padding:12px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;">Ladda ner PDF</a>
-        </div>
-      </article>
-      <article id="nyhet-byaturnen" class="news-detail" style="background:#FFFFFF;border-left:8px solid #F5A81E;border-radius:8px;padding:clamp(24px,4vw,38px);box-shadow:0 18px 44px rgba(20,27,68,0.10);">
-        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">2 juni 2026</span>
-        <h3 style="margin:10px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(30px,4.5vw,42px);line-height:1.05;color:#1E2A5E;">Byaturnén i augusti — vi kommer till din by</h3>
-        <p style="margin:18px 0 0;font-size:19px;line-height:1.6;color:#3A4270;max-width:760px;">I augusti åker vi ut för att lyssna, samla frågor och prata om Bykontraktet. Vi vill möta människor där besluten faktiskt känns: vid skolan, äldreomsorgen, vägen, föreningslokalen och vardagsservicen.</p>
-        <p style="margin:12px 0 0;font-size:19px;line-height:1.6;color:#3A4270;max-width:760px;">Vill du att vi kommer till din by eller förening? Hör av dig så planerar vi in ett öppet samtal.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
-          <a data-btn="1" href="mailto:rattvisdemokrati@gmail.com?subject=Byaturn%C3%A9n%20i%20augusti" style="background:#1E2A5E;color:#FFFFFF;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;padding:12px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;">Boka ett besök <span data-arrow="1" style="display:inline-block;">→</span></a>
-          <a data-btn="1" href="https://www.facebook.com/rattvisdemokrati" target="_blank" rel="noopener" style="background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;padding:12px 24px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;">Följ på Facebook</a>
-        </div>
-      </article>
+      <div style="flex:1 1 300px;display:grid;gap:14px;">
+        <a data-btn="1" href="assets/rattvis-demokrati-brochure.pdf" download="rattvis-demokrati-brochure.pdf" class="btn btn-yellow" style="background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:0.04em;padding:16px 24px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:30px;">Ladda ner PDF <span data-arrow="1" style="display:inline-block;">→</span></a>
+        <a data-btn="1" href="https://www.facebook.com/rattvisdemokrati" target="_blank" rel="noopener" class="btn btn-navy" style="background:#141B44;color:#FFFFFF;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:0.04em;padding:16px 24px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:30px;">Besök Facebook <span data-arrow="1" style="display:inline-block;">→</span></a>
+        <a data-btn="1" href="mailto:rattvisdemokrati@gmail.com?subject=Jag%20vill%20bli%20medlem%20i%20R%C3%A4ttvis%20Demokrati" style="background:#FFFFFF;color:#1E2A5E;border:2px solid rgba(30,42,94,0.28);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:0.04em;padding:14px 22px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:30px;">Bli medlem via mejl <span data-arrow="1" style="display:inline-block;">→</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -467,35 +420,6 @@ html { scroll-behavior: smooth; }
     if (!btn || (e.relatedTarget && btn.contains(e.relatedTarget))) return;
     btn.querySelectorAll('[data-arrow]').forEach(function (ar) { ar.style.transform = 'translateX(0)'; });
   });
-
-  var newsLinks = document.querySelectorAll('[data-news-open]');
-  var newsDetails = document.querySelectorAll('.news-detail');
-  function openNews(id, shouldScroll) {
-    if (!id) return;
-    var target = document.getElementById(id);
-    if (!target) return;
-    newsDetails.forEach(function (detail) {
-      detail.classList.toggle('is-active', detail.id === id);
-    });
-    newsLinks.forEach(function (link) {
-      var active = link.getAttribute('data-news-open') === id;
-      link.classList.toggle('is-active', active);
-      link.setAttribute('aria-expanded', active ? 'true' : 'false');
-    });
-    if (history.pushState) history.pushState(null, '', '#' + id);
-    if (shouldScroll) {
-      target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-    }
-  }
-  newsLinks.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      openNews(link.getAttribute('data-news-open'), true);
-    });
-  });
-  if (window.location.hash) {
-    openNews(window.location.hash.slice(1), false);
-  }
 
   if (reduced || !('IntersectionObserver' in window)) return;
 
