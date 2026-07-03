@@ -41,6 +41,9 @@ html { scroll-behavior: smooth; }
   * { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+@media (max-width: 759px) {
+  footer#kontakt { padding-bottom: 128px !important; }
+}
 </style>
 </head>
 <body>
@@ -362,7 +365,13 @@ html { scroll-behavior: smooth; }
       <a data-btn="1" href="mailto:rattvisdemokrati@gmail.com?subject=Jag%20vill%20bli%20medlem%20i%20R%C3%A4ttvis%20Demokrati" class="btn btn-yellow" style="margin-top:8px;background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:0.04em;padding:13px 28px;border-radius:8px;display:inline-flex;align-items:center;gap:10px;">Bli medlem <span data-arrow="1" style="display:inline-block;">→</span></a>
     </div>
   </div>
-  <p style="max-width:1160px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.14);font-size:15px;color:rgba(255,255,255,0.55);">© 2026 Rättvis Demokrati · Strömsunds kommun</p>
+  <div style="max-width:1160px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.14);display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px 24px;font-size:15px;color:rgba(255,255,255,0.55);">
+    <span>© 2026 Rättvis Demokrati · Strömsunds kommun</span>
+    <span style="text-align:right;">
+      Powered by <a href="https://smartartai.se" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.72);text-decoration:none;border-bottom:1px solid rgba(245,168,30,0.45);padding-bottom:1px;">smartartai.se</a><br>
+      <a href="mailto:hello@smartartai.se" style="color:rgba(255,255,255,0.72);text-decoration:none;border-bottom:1px solid rgba(245,168,30,0.45);padding-bottom:1px;">hello@smartartai.se</a>
+    </span>
+  </div>
 </footer>
 
 <!-- deploy: refresh static asset bundle -->
