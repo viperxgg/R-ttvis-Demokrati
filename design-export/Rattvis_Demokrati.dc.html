@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const Y=new URLSearchParams(location.search).get("theme");if(Y==="light"||Y==="dark"){document.documentElement.dataset.theme=Y}}{const Y=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const k=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(k&&k!=="normal")return;const w=(X)=>{if(!X)return null;const F=getComputedStyle(X).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!F)return null;const K=F[4]==null?1:parseFloat(F[4])/(F[4].endsWith("%")?100:1);if(K<0.99)return null;return[+F[1],+F[2],+F[3]]};const U=w(document.body)||w(document.documentElement);if(!U)return;const x=(X)=>{const F=X/255;return F<=0.04045?F/12.92:((F+0.055)/1.055)**2.4};const D=0.2126*x(U[0])+0.7152*x(U[1])+0.0722*x(U[2]);document.documentElement.style.setProperty("color-scheme",D<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")Y();else window.addEventListener("load",Y)}var _=["https://claude.ai","https://preview.claude.ai","https://f80b640c-adc1-483f-8c33-6937a1a1d3b0.claudeusercontent.com"];var v=true;var P=30000;var h=3000;document.addEventListener("DOMContentLoaded",()=>{const Y=window.Babel;const k="om-src-id";if(Y&&Y.registerPlugin&&!(Y.availablePlugins&&Y.availablePlugins[k])){Y.registerPlugin(k,({types:D})=>({visitor:{JSXOpeningElement(X,F){const K=X.node;if(K.name&&K.name.type==="JSXMemberExpression")return;for(let z=0;z<K.attributes.length;z++){const V=K.attributes[z];if(V.type==="JSXAttribute"&&V.name&&V.name.name==="data-om-id")return}const B=F.file&&F.file.opts&&F.file.opts.filename||"?";const A=K.loc&&K.loc.start;const J=`jsx:${B}:${K.start??0}:${A?A.line:0}:${A?A.column+1:0}`;K.attributes.push(D.jsxAttribute(D.jsxIdentifier("data-om-id"),D.stringLiteral(J)))}}}))}const w="om-text-extract";let U=false;if(v&&Y&&Y.registerPlugin&&!(Y.availablePlugins&&Y.availablePlugins[w])){const D=window.React;if(D&&D.useSyncExternalStore&&D.createElement){U=true;const X={};const F=new Set;let K=0;window.__omTextO=X;window.__omTextSet=(J)=>{for(const z in J){const V=J[z];if(V==null)delete X[z];else X[z]=V}K++;F.forEach((z)=>z())};const B=(J)=>{F.add(J);return()=>F.delete(J)};const A=()=>K;window.__OmT=function J(z){D.useSyncExternalStore(B,A,A);return D.createElement("span",{"data-om-text":z.i,className:"__om-t"},z.i in X?X[z.i]:z.children)};Y.registerPlugin(w,({types:J})=>{const z={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const V={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const W=(Z,H)=>J.logicalExpression("??",J.memberExpression(J.logicalExpression("||",J.memberExpression(J.identifier("window"),J.identifier("__omTextO")),J.objectExpression([])),J.stringLiteral(Z),true),H);const Q=(Z)=>Z.file&&Z.file.opts&&Z.file.opts.filename||"?";const j=(Z)=>Z.file&&Z.file.code||"";const G=(Z,H)=>{const N=($)=>$&&$.start!=null&&$.end!=null&&($.type==="StringLiteral"||$.type==="TemplateLiteral"&&$.expressions.length===0)?[$.start,$.end]:null;const L=N(H);if(L)return L;if(H&&H.type==="Identifier"){const $=Z.scope.getBinding(H.name);if($&&$.constant&&$.path.node.type==="VariableDeclarator"){return N($.path.node.init)}}return null};const R=(Z,H,N)=>{const L=Z.node;let $=false;const M=(q,E)=>{$=true;return J.jsxElement(J.jsxOpeningElement(J.jsxIdentifier("__OmT"),[J.jsxAttribute(J.jsxIdentifier("i"),J.stringLiteral(q))],false),J.jsxClosingElement(J.jsxIdentifier("__OmT")),[E],false)};const C=L.children.map((q)=>{if(q.type==="JSXText"){if(q.start==null||q.end==null)return q;const E=N.slice(q.start,q.end);const f=E.length-E.trimStart().length;const I=E.length-E.trimEnd().length;if(f+I>=E.length)return q;return M(`txt:${H}:${q.start+f}:${q.end-I}`,q)}if(q.type==="JSXExpressionContainer"){const E=G(Z,q.expression);if(E)return M(`str:${H}:${E[0]}:${E[1]}`,q)}return q});if($)L.children=C};return{visitor:{JSXOpeningElement(Z,H){const N=Z.node;const L=Q(H);const $={};for(let M=0;M<N.attributes.length;M++){const C=N.attributes[M];if(C.type!=="JSXAttribute"||!C.name)continue;const q=C.name.name;if(!V[q])continue;if(!C.value||C.value.type!=="StringLiteral")continue;if(C.value.start==null||C.value.end==null)continue;const E=`txt:${L}:${C.value.start}:${C.value.end}`;$[q]=E;C.value=J.jsxExpressionContainer(W(E,J.stringLiteral(C.value.value)))}if(Object.keys($).length){N.attributes.push(J.jsxAttribute(J.jsxIdentifier("data-om-text-attrs"),J.stringLiteral(JSON.stringify($))))}},JSXElement(Z,H){const N=Z.node.openingElement;const L=N&&N.name&&N.name.name;if(L==="__OmT")return;if(typeof L==="string"&&z[L])return;R(Z,Q(H),j(H))},JSXFragment(Z,H){R(Z,Q(H),j(H))}}}})}}const x=U?["transform-react-jsx-source",k,w]:["transform-react-jsx-source",k];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((D,X)=>{const F=D.getAttribute("data-plugins")||"";const K=x.filter((B)=>F.indexOf(B)<0);if(K.length){D.setAttribute("data-plugins",F?`${F},${K.join(",")}`:K.join(","))}if(!D.hasAttribute("data-filename")){D.setAttribute("data-filename",D.getAttribute("src")||`inline-${X}`)}})});var S=window.parent;if(S&&S!==window){const Y=(J,z)=>{try{S.postMessage({__omelette_log:true,type:J,data:z},"*")}catch{}};["log","warn","error"].forEach((J)=>{const z=console[J];console[J]=(...V)=>{const W=V.map((Q)=>{try{return typeof Q==="object"?JSON.stringify(Q):String(Q)}catch{try{return String(Q)}catch{return"[unstringifiable]"}}}).join(" ");Y(J,W);z.apply(console,V)}});window.addEventListener("error",(J)=>{const z=J.target;if(z&&z!==window&&z.tagName){const V=z.src||z.href||"";Y("resource_error",`${z.tagName} failed to load: ${V}`)}else{Y("error",`${J.message||"Unknown error"} at ${J.filename||"?"}:${J.lineno||0}:${J.colno||0}`)}},true);window.addEventListener("unhandledrejection",(J)=>{const z=J.reason;const V=z instanceof Error?`${z.message} ${z.stack}`:String(z);Y("error",`Unhandled rejection: ${V}`)});const k=()=>{try{S.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(k).observe(document.documentElement);const w=()=>{k();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const J=()=>document.getElementById("root")||document.querySelector("body > div[id]");const z=J()?.firstElementChild??null;let V=0;const W=()=>{const Q=J();if(Q&&Q.firstElementChild!==z||++V>30){k();return}setTimeout(W,100)};setTimeout(W,100)};if(document.readyState==="complete")w();else window.addEventListener("load",w);const U={};let x=0;const D=(J)=>new Promise((z,V)=>{if(!_.length){V(new Error("claude.complete: no parent origin"));return}const W=`c${++x}`;const Q=()=>setTimeout(()=>{delete U[W];V(new Error(`claude.complete: no data for ${P/1000}s`))},P);const j=Q();U[W]={resolve:z,reject:V,text:"",t:j,arm:Q};try{for(const G of _){S.postMessage({__om_api:true,id:W,body:J},G)}}catch(G){clearTimeout(j);delete U[W];V(G)}});const X=8;const F=async(J,z)=>{if(!Array.isArray(J.messages)){throw new Error("claude.complete: tools require a messages array")}const V=J.messages.slice();const W={...J,tools:J.tools.map((G)=>{if(G===null||typeof G!=="object")return G;const R={};for(const Z of Object.keys(G)){if(typeof G[Z]!=="function")R[Z]=G[Z]}return R})};const Q=W.tool_choice;const j=Q!=null&&(Q.type==="any"||Q.type==="tool")?{...W,tool_choice:Q.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:Q.disable_parallel_tool_use}:{type:"auto"}}:W;for(let G=0;G<X;G++){const R=await D({...G===0?W:j,messages:V});const Z=R.message;const H=Z&&Array.isArray(Z.content)?Z.content:null;const N=H?H.filter(($)=>$?.type==="tool_use"):[];if(Z?.stop_reason!=="tool_use"||N.length===0){return R.text}const L=[];for(const $ of N){const M=z.get($.name);if(!M){L.push({type:"tool_result",tool_use_id:$.id,content:`no handler for tool "${$.name}"`,is_error:true});continue}try{const C=await M($.input);const q=typeof C==="string"?C:A(C)??"";L.push({type:"tool_result",tool_use_id:$.id,content:q})}catch(C){L.push({type:"tool_result",tool_use_id:$.id,content:String(C?.message??C??"tool handler failed"),is_error:true})}}V.push({role:"assistant",content:H},{role:"user",content:L})}throw new Error(`claude.complete: exceeded ${X} tool turns`)};window.claude={complete(J){const z=J;if(z!==null&&typeof z==="object"&&Array.isArray(z.tools)&&z.tools.some((V)=>V!==null&&typeof V==="object"&&typeof V.run==="function")){const V=new Map;for(const W of z.tools){if(W!==null&&typeof W==="object"&&typeof W.run==="function"){V.set(String(W.name),W.run)}}return F(z,V)}return D(J).then((V)=>V.text)}};const K={};let B=0;window.omelette={writeFile:(J,z)=>new Promise((V,W)=>{if(!_.length){V();return}const Q=`f${++B}`;const j=setTimeout(()=>{delete K[Q];V()},h);K[Q]={resolve:V,reject:W,t:j};try{for(const G of _){S.postMessage({__om_file:true,id:Q,op:"write",path:J,content:z},G)}}catch{clearTimeout(j);delete K[Q];V()}})};const A=(J)=>{try{return JSON.stringify(J)}catch{return JSON.stringify(String(J))}};window.addEventListener("message",(J)=>{if(_.indexOf(J.origin)<0)return;if(J.source!==S)return;const z=J.data;if(!z)return;if(z.type==="omelette-preview-refresh"){if(typeof z.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(z.token))return;const Q=Math.max(1,Math.floor((z.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+z.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+Q;return}if(z.__om_file_r){const Q=K[z.id];if(!Q)return;clearTimeout(Q.t);delete K[z.id];if(z.ok)Q.resolve();else Q.reject(new Error(z.error||"write failed"));return}if(z.__om_api_r){const Q=U[z.id];if(!Q)return;if(z.error!=null){clearTimeout(Q.t);delete U[z.id];Q.reject(new Error(z.error));return}if(z.chunk!=null){clearTimeout(Q.t);Q.t=Q.arm();Q.text+=z.chunk;return}if(z.done){clearTimeout(Q.t);delete U[z.id];Q.resolve({text:z.text!=null?z.text:Q.text,message:z.message});return}return}if(!z.__om_eval)return;const V=z;const W=(Q)=>{J.source.postMessage({...Q,__om_eval_r:1,id:V.id},J.origin)};try{const Q=(0,eval)(V.code);if(Q&&typeof Q.then==="function"){Q.then((j)=>W({ok:1,v:A(j)}),(j)=>W({ok:0,e:String(j)}))}else{W({ok:1,v:A(Q)})}}catch(Q){W({ok:0,e:String(Q)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=PT+Serif:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<style>
+html, body { margin: 0; padding: 0; background: #FFFFFF; }
+body { font-family: 'Source Sans 3', system-ui, sans-serif; color: #1E2A5E; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+html { scroll-behavior: smooth; }
+@keyframes rd-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</helmet>
+
+<header data-screen-label="Header" style="background:#FFFFFF;position:relative;z-index:5;border-bottom:1px solid rgba(30,42,94,0.08);">
+  <div style="max-width:1160px;margin:0 auto;padding:14px clamp(16px,4vw,40px);display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;">
+    <a href="#start" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:#1E2A5E;">
+      <img src="uploads/277553372_101235825887883_647042979823129934_n.jpg" alt="Rättvis Demokrati — logotyp med rättvisans våg" style="width:50px;height:50px;border-radius:10px;display:block;">
+      <span style="display:flex;flex-direction:column;line-height:1.08;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:25px;letter-spacing:0.02em;text-transform:uppercase;">Rättvis Demokrati</span>
+        <span style="font-size:14px;color:#5A628C;font-weight:600;">Strömsunds kommun</span>
+      </span>
+    </a>
+    <nav aria-label="Huvudmeny" style="display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap;margin-left:auto;">
+      <a href="#start" style="color:#1E2A5E;text-decoration:none;font-weight:700;font-size:17px;padding:6px 2px;border-bottom:3px solid #F5A81E;">Start</a>
+      <a href="#kontraktet" style="color:#1E2A5E;text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;border-bottom:3px solid transparent;" style-hover="border-bottom:3px solid #F5A81E;">Bykontraktet</a>
+      <a href="#laget" style="color:#1E2A5E;text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;border-bottom:3px solid transparent;" style-hover="border-bottom:3px solid #F5A81E;">Vilka vi är</a>
+      <a href="#granska" style="color:#1E2A5E;text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;border-bottom:3px solid transparent;" style-hover="border-bottom:3px solid #F5A81E;">Vårt arbete</a>
+      <a href="#kontakt" style="color:#1E2A5E;text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;border-bottom:3px solid transparent;" style-hover="border-bottom:3px solid #F5A81E;">Kontakt</a>
+      <a data-btn="1" href="#kontakt" style="background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;letter-spacing:0.04em;padding:11px 22px;border-radius:8px;display:inline-flex;align-items:center;min-height:22px;transition:filter 0.2s ease-out, transform 0.15s ease-out;" style-hover="filter:brightness(0.93);" style-active="transform:scale(0.98);">Engagera dig</a>
+    </nav>
+  </div>
+</header>
+
+<section id="start" data-hero-section="1" data-screen-label="Hero" style="background:#1E2A5E;color:#FFFFFF;position:relative;overflow:hidden;">
+  <div style="max-width:1160px;margin:0 auto;padding:clamp(52px,8vw,110px) clamp(16px,4vw,40px) clamp(140px,17vw,210px);">
+    <div data-hero="3" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:clamp(24px,4vw,42px);">
+      <span style="border:2px solid rgba(255,255,255,0.45);border-radius:999px;padding:9px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;letter-spacing:0.05em;text-transform:uppercase;">Kommunvalet · 13 september 2026</span>
+      <span style="background:#F5A81E;color:#141B44;border-radius:999px;padding:9px 20px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;letter-spacing:0.05em;text-transform:uppercase;">{{ days }} dagar kvar</span>
+    </div>
+    <h1 style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(42px,8.6vw,102px);line-height:0.97;letter-spacing:0.005em;">
+      <span data-hero="1" style="display:block;">Varken höger eller vänster&nbsp;—</span>
+      <span data-hero="2" style="display:block;margin-top:12px;">
+        <span style="position:relative;display:inline-block;padding:4px 16px 8px;margin-left:-4px;">
+          <span data-hl-bar="1" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#F5A81E;transform:scaleX(1);transform-origin:left center;"></span>
+          <span data-hl-text="1" style="position:relative;color:#141B44;">vi står på byarnas sida.</span>
+        </span>
+      </span>
+    </h1>
+    <p data-hero="4" style="margin:clamp(22px,3.5vw,36px) 0 0;font-size:clamp(19px,2.3vw,24px);max-width:580px;color:rgba(255,255,255,0.88);line-height:1.5;">Ett lokalt parti. Inga order från Stockholm. Bara Strömsund.</p>
+    <div data-hero="5" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(26px,4vw,42px);">
+      <a data-btn="1" href="#kontraktet" style="background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:0.04em;padding:15px 30px;border-radius:8px;display:inline-flex;align-items:center;gap:10px;transition:filter 0.2s ease-out, transform 0.15s ease-out;" style-hover="filter:brightness(0.93);" style-active="transform:scale(0.98);">Läs Bykontraktet <span data-arrow="1" style="display:inline-block;">→</span></a>
+      <a data-btn="1" href="#kontraktet" style="background:transparent;color:#FFFFFF;border:2px solid rgba(255,255,255,0.65);text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;text-transform:uppercase;letter-spacing:0.04em;padding:13px 28px;border-radius:8px;display:inline-flex;align-items:center;gap:10px;transition:background 0.2s ease-out, transform 0.15s ease-out;" style-hover="background:rgba(255,255,255,0.1);" style-active="transform:scale(0.98);">Ladda ner PDF</a>
+    </div>
+  </div>
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="display:block;width:100%;height:clamp(64px,9vw,110px);position:absolute;left:0;bottom:-1px;">
+    <g fill="#141B44">
+      <rect x="0" y="92" width="1440" height="18"></rect>
+      <polygon points="25,110 55,38 85,110"></polygon>
+      <polygon points="120,110 120,64 155,42 190,64 190,110"></polygon>
+      <polygon points="205,110 228,54 251,110"></polygon>
+      <polygon points="272,110 272,60 322,38 372,60 372,110"></polygon>
+      <polygon points="400,110 400,72 428,54 456,72 456,110"></polygon>
+      <polygon points="470,110 500,30 530,110"></polygon>
+      <rect x="570" y="48" width="34" height="62"></rect>
+      <polygon points="560,50 587,22 614,50"></polygon>
+      <rect x="584" y="4" width="5" height="18"></rect>
+      <rect x="578" y="9" width="17" height="4"></rect>
+      <rect x="604" y="70" width="70" height="40"></rect>
+      <polygon points="604,70 639,52 674,70"></polygon>
+      <polygon points="700,110 700,66 738,44 776,66 776,110"></polygon>
+      <polygon points="792,110 820,40 848,110"></polygon>
+      <polygon points="852,110 874,58 896,110"></polygon>
+      <polygon points="920,110 920,58 975,36 1030,58 1030,110"></polygon>
+      <polygon points="1060,110 1060,74 1086,56 1112,74 1112,110"></polygon>
+      <polygon points="1130,110 1162,26 1194,110"></polygon>
+      <polygon points="1220,110 1220,64 1256,44 1292,64 1292,110"></polygon>
+      <polygon points="1310,110 1338,48 1366,110"></polygon>
+      <polygon points="1385,110 1385,76 1410,58 1435,76 1435,110"></polygon>
+    </g>
+  </svg>
+</section>
+
+<div data-screen-label="Gult band" style="background:#F5A81E;overflow:hidden;padding:13px 0;border-top:1px solid rgba(20,27,68,0.15);border-bottom:1px solid rgba(20,27,68,0.15);">
+  <div style="display:flex;width:max-content;animation:rd-marquee 40s linear infinite;" style-hover="animation-play-state:paused;">
+    <span style="white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:21px;letter-spacing:0.07em;text-transform:uppercase;color:#141B44;">Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;</span>
+    <span aria-hidden="true" style="white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:21px;letter-spacing:0.07em;text-transform:uppercase;color:#141B44;">Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;Rättvisa mellan byarna&nbsp;·&nbsp;service nära människorna&nbsp;·&nbsp;</span>
+  </div>
+</div>
+
+<section id="kontraktet" data-screen-label="Bykontraktet" style="background:#FAF9F5;padding:clamp(64px,9vw,110px) clamp(16px,4vw,40px);">
+  <div style="max-width:1160px;margin:0 auto;">
+    <div data-anim="up" style="text-align:center;max-width:640px;margin:0 auto;">
+      <p style="margin:0;color:#BA7517;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;letter-spacing:0.14em;text-transform:uppercase;">Vårt valprogram 2026–2030</p>
+      <h2 style="margin:10px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(38px,6vw,64px);line-height:1;color:#1E2A5E;">Fem löften ni kan granska</h2>
+      <p style="margin:16px auto 0;font-size:19px;line-height:1.55;color:#3A4270;max-width:520px;">Varje löfte är en konkret handling med datum. Bocka av oss efter fyra år.</p>
+    </div>
+
+    <article data-anim="contract" style="position:relative;background:#FFFFFF;border-top:8px solid #3B4CA8;box-shadow:0 24px 60px rgba(20,27,68,0.12);max-width:800px;margin:clamp(44px,6vw,64px) auto 0;padding:clamp(28px,5vw,52px) clamp(20px,4.5vw,52px) clamp(28px,5vw,44px);">
+      <div data-stamp="1" style="position:absolute;top:-34px;right:clamp(10px,4vw,36px);width:118px;height:118px;border-radius:50%;border:3px solid #BA7517;transform:rotate(-10deg);display:flex;align-items:center;justify-content:center;background:rgba(250,249,245,0.92);">
+        <span style="position:absolute;top:5px;right:5px;bottom:5px;left:5px;border:1.5px solid #BA7517;border-radius:50%;"></span>
+        <span style="text-align:center;color:#BA7517;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:21px;line-height:1.05;letter-spacing:0.08em;text-transform:uppercase;">Granska<br>oss<br>2030</span>
+      </div>
+      <h3 style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(30px,4.5vw,40px);color:#1E2A5E;letter-spacing:0.01em;">Bykontraktet 2026–2030</h3>
+
+      <div data-clause="1" style="display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,24px);align-items:start;padding:26px 0 22px;border-bottom:2px dashed rgba(30,42,94,0.25);margin-top:14px;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(42px,6vw,58px);line-height:0.9;color:#3B4CA8;">01</span>
+        <p style="margin:4px 0 0;font-size:19px;line-height:1.5;font-weight:600;color:#1E2A5E;">Nytt äldreboende byggs i norr — Älvgården stängs inte förrän det nya står klart</p>
+        <span style="width:30px;height:30px;border:2.5px solid #1E2A5E;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:4px;">
+          <svg viewBox="0 0 30 30" aria-hidden="true" style="width:26px;height:26px;display:block;overflow:visible;"><polyline data-tick="1" points="6,16 12,22 24,7" fill="none" stroke="#3B4CA8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+      </div>
+      <div data-clause="1" style="display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,24px);align-items:start;padding:26px 0 22px;border-bottom:2px dashed rgba(30,42,94,0.25);">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(42px,6vw,58px);line-height:0.9;color:#3B4CA8;">02</span>
+        <p style="margin:4px 0 0;font-size:19px;line-height:1.5;font-weight:600;color:#1E2A5E;">Högstadiet stannar i Backe och i Hoting</p>
+        <span style="width:30px;height:30px;border:2.5px solid #1E2A5E;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:4px;">
+          <svg viewBox="0 0 30 30" aria-hidden="true" style="width:26px;height:26px;display:block;overflow:visible;"><polyline data-tick="1" points="6,16 12,22 24,7" fill="none" stroke="#3B4CA8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+      </div>
+      <div data-clause="1" style="display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,24px);align-items:start;padding:26px 0 22px;border-bottom:2px dashed rgba(30,42,94,0.25);">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(42px,6vw,58px);line-height:0.9;color:#3B4CA8;">03</span>
+        <p style="margin:4px 0 0;font-size:19px;line-height:1.5;font-weight:600;color:#1E2A5E;">Byrapporten: varje år redovisas öppet vart pengarna går — by för by</p>
+        <span style="width:30px;height:30px;border:2.5px solid #1E2A5E;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:4px;">
+          <svg viewBox="0 0 30 30" aria-hidden="true" style="width:26px;height:26px;display:block;overflow:visible;"><polyline data-tick="1" points="6,16 12,22 24,7" fill="none" stroke="#3B4CA8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+      </div>
+      <div data-clause="1" style="display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,24px);align-items:start;padding:26px 0 22px;border-bottom:2px dashed rgba(30,42,94,0.25);">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(42px,6vw,58px);line-height:0.9;color:#3B4CA8;">04</span>
+        <p style="margin:4px 0 0;font-size:19px;line-height:1.5;font-weight:600;color:#1E2A5E;">Ingen nedläggning av service utan ett öppet möte i den berörda byn först</p>
+        <span style="width:30px;height:30px;border:2.5px solid #1E2A5E;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:4px;">
+          <svg viewBox="0 0 30 30" aria-hidden="true" style="width:26px;height:26px;display:block;overflow:visible;"><polyline data-tick="1" points="6,16 12,22 24,7" fill="none" stroke="#3B4CA8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+      </div>
+      <div data-clause="1" style="display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,3vw,24px);align-items:start;padding:26px 0 22px;border-bottom:2px solid rgba(30,42,94,0.35);">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(42px,6vw,58px);line-height:0.9;color:#3B4CA8;">05</span>
+        <p style="margin:4px 0 0;font-size:19px;line-height:1.5;font-weight:600;color:#1E2A5E;">Administrationen sparar först — inte skolan och omsorgen</p>
+        <span style="width:30px;height:30px;border:2.5px solid #1E2A5E;border-radius:6px;display:flex;align-items:center;justify-content:center;margin-top:4px;">
+          <svg viewBox="0 0 30 30" aria-hidden="true" style="width:26px;height:26px;display:block;overflow:visible;"><polyline data-tick="1" points="6,16 12,22 24,7" fill="none" stroke="#3B4CA8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 32px;padding-top:26px;">
+        <p style="margin:0;font-size:18px;font-weight:600;color:#1E2A5E;max-width:320px;">Vi skriver under — håll oss ansvariga.</p>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;">
+          <span data-sig="1" style="font-family:'PT Serif',serif;font-style:italic;font-size:clamp(26px,4vw,32px);color:#141B44;transform:rotate(-2deg);display:inline-block;line-height:1.1;">Tore Hansson</span>
+          <span style="font-size:15px;color:#5A628C;margin-top:6px;">partiledare · Backe</span>
+        </div>
+      </div>
+    </article>
+
+    <p data-anim="up" style="text-align:center;margin:36px 0 0;">
+      <a data-btn="1" href="#kontraktet" style="color:#3B4CA8;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:22px;text-transform:uppercase;letter-spacing:0.04em;border-bottom:3px solid #F5A81E;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px;">Läs hela Bykontraktet <span data-arrow="1" style="display:inline-block;">→</span></a>
+    </p>
+  </div>
+</section>
+
+<section data-screen-label="Två frågor" style="background:#FFFFFF;padding:clamp(64px,9vw,110px) clamp(16px,4vw,40px);">
+  <div style="max-width:1060px;margin:0 auto;">
+    <h2 data-anim="up" style="margin:0 0 clamp(32px,5vw,48px);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5.5vw,58px);line-height:1;color:#1E2A5E;text-align:center;">Två frågor som avgör valet</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:28px;">
+      <a data-anim="up" data-btn="1" href="#kontraktet" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.14);border-radius:12px;overflow:hidden;text-decoration:none;color:#1E2A5E;transition:transform 0.25s ease-out, box-shadow 0.25s ease-out;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,27,68,0.15);" style-active="transform:scale(0.98);">
+        <span style="display:block;position:relative;height:clamp(210px,26vw,270px);background:#E9EBF4;">
+          <image-slot id="rd-foto-aldreboende" shape="rect" placeholder="Foto: Älvgården / äldreomsorgen" style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;"></image-slot>
+          <span data-duo="1" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#1E2A5E;mix-blend-mode:color;pointer-events:none;"></span>
+          <span data-duo="1" style="position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(30,42,94,0.25);mix-blend-mode:multiply;pointer-events:none;"></span>
+          <span data-arrow="1" style="position:absolute;top:14px;left:14px;background:#F5A81E;color:#141B44;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 13px;display:inline-block;">Älvgården</span>
+        </span>
+        <span style="display:block;padding:24px 26px 28px;">
+          <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(26px,3vw,30px);line-height:1.08;">Det nya äldreboendet byggs i norr</span>
+          <span style="display:block;font-size:18px;line-height:1.55;color:#3A4270;margin-top:10px;">Ingen vårdplats försvinner innan det nya boendet står klart.</span>
+          <span style="display:inline-block;margin-top:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;color:#3B4CA8;border-bottom:3px solid #F5A81E;padding-bottom:1px;">Vår plan →</span>
+        </span>
+      </a>
+      <a data-anim="up" data-btn="1" href="#kontraktet" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.14);border-radius:12px;overflow:hidden;text-decoration:none;color:#1E2A5E;transition:transform 0.25s ease-out, box-shadow 0.25s ease-out;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,27,68,0.15);" style-active="transform:scale(0.98);">
+        <span style="display:block;position:relative;height:clamp(210px,26vw,270px);background:#1E2A5E;">
+          <image-slot id="rd-foto-skolan" shape="rect" src="uploads/466919693_559615320049929_6580687515354176442_n.jpg" placeholder="Foto: skolvägen / högstadiet" style="position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;"></image-slot>
+          <span data-duo="1" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#1E2A5E;mix-blend-mode:color;pointer-events:none;"></span>
+          <span data-duo="1" style="position:absolute;top:0;right:0;bottom:0;left:0;background:rgba(30,42,94,0.25);mix-blend-mode:multiply;pointer-events:none;"></span>
+          <span data-arrow="1" style="position:absolute;top:14px;left:14px;background:#F5A81E;color:#141B44;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 13px;display:inline-block;">Skolan</span>
+        </span>
+        <span style="display:block;padding:24px 26px 28px;">
+          <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(26px,3vw,30px);line-height:1.08;">Högstadiet stannar i Backe och Hoting</span>
+          <span style="display:block;font-size:18px;line-height:1.55;color:#3A4270;margin-top:10px;">Barnen ska inte betala besparingar med två timmar buss om dagen.</span>
+          <span style="display:inline-block;margin-top:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:0.04em;color:#3B4CA8;border-bottom:3px solid #F5A81E;padding-bottom:1px;">Läs mer →</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Citat Tore" style="background:#3B4CA8;padding:clamp(64px,9vw,110px) clamp(16px,4vw,40px);">
+  <div data-anim="quote" style="max-width:980px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(28px,5vw,56px);">
+    <div style="flex:0 0 auto;margin:0 auto;">
+      <div style="width:170px;height:170px;border-radius:50%;border:4px solid #F5A81E;padding:6px;background:#E9EBF4;position:relative;">
+        <div style="position:absolute;top:6px;right:6px;bottom:6px;left:6px;border-radius:50%;overflow:hidden;">
+          <image-slot id="rd-foto-tore" shape="circle" placeholder="Porträtt: Tore" style="width:100%;height:100%;display:block;"></image-slot>
+          <span data-duo="1" style="position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;background:#1E2A5E;mix-blend-mode:color;pointer-events:none;"></span>
+        </div>
+      </div>
+    </div>
+    <blockquote style="flex:1 1 420px;margin:0;position:relative;">
+      <span data-qmark="1" aria-hidden="true" style="display:block;font-family:'PT Serif',serif;font-weight:700;font-size:clamp(80px,10vw,120px);line-height:0.4;color:#F5A81E;margin-bottom:18px;">”</span>
+      <p style="margin:0 0 14px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;letter-spacing:0.1em;text-transform:uppercase;color:#F5A81E;">Vem är Tore Hansson?</p>
+      <div data-qbody="1">
+        <p style="margin:0;font-family:'PT Serif',serif;font-style:italic;font-size:clamp(22px,2.8vw,29px);line-height:1.45;color:#FFFFFF;">Jag bor några minuter från Älvgården. Jag läser inte om nedläggningarna i rapporter — jag lever mitt i dem. Ge oss ett mandat till, så blir byarnas röst dubbelt så stark.</p>
+        <p style="margin:18px 0 0;font-size:18px;font-weight:600;color:rgba(255,255,255,0.82);">Tore Hansson · partiledare · Lilla Allén, Backe</p>
+      </div>
+    </blockquote>
+  </div>
+</section>
+
+<section id="laget" data-screen-label="Vilka vi är" style="background:#FFFFFF;padding:clamp(64px,9vw,110px) clamp(16px,4vw,40px);">
+  <div style="max-width:1160px;margin:0 auto;">
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 28px;margin-bottom:clamp(30px,4.5vw,44px);">
+      <h2 style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5.5vw,58px);line-height:1;color:#1E2A5E;">Vilka vi är</h2>
+      <a data-btn="1" href="#laget" style="color:#3B4CA8;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:21px;text-transform:uppercase;letter-spacing:0.04em;border-bottom:3px solid #F5A81E;padding-bottom:2px;display:inline-flex;align-items:center;gap:8px;">Hela laget <span data-arrow="1" style="display:inline-block;">→</span></a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;">
+      <div data-anim="up" style="background:#FAF9F5;border-radius:12px;padding:26px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+        <div style="width:96px;height:96px;border-radius:50%;overflow:hidden;position:relative;background:#E9EBF4;">
+          <image-slot id="rd-foto-tore-kort" shape="circle" placeholder="Porträtt" style="width:100%;height:100%;display:block;"></image-slot>
+          <span data-duo="1" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#1E2A5E;mix-blend-mode:color;pointer-events:none;"></span>
+        </div>
+        <p style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1;color:#1E2A5E;">Tore Hansson</p>
+        <span style="background:rgba(59,76,168,0.12);color:#3B4CA8;font-weight:600;font-size:15px;padding:6px 13px;border-radius:999px;">Älvgården &amp; norr</span>
+      </div>
+      <div data-anim="up" style="background:#FAF9F5;border-radius:12px;padding:26px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+        <div style="width:96px;height:96px;border-radius:50%;background:repeating-linear-gradient(45deg, rgba(30,42,94,0.08) 0 8px, rgba(30,42,94,0.16) 8px 16px);"></div>
+        <p style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1;color:#5A628C;">Presenteras i höst</p>
+        <span style="background:rgba(30,42,94,0.07);color:#5A628C;font-weight:600;font-size:15px;padding:6px 13px;border-radius:999px;">Kandidat nr 2</span>
+      </div>
+      <div data-anim="up" style="background:#FAF9F5;border-radius:12px;padding:26px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+        <div style="width:96px;height:96px;border-radius:50%;background:repeating-linear-gradient(45deg, rgba(30,42,94,0.08) 0 8px, rgba(30,42,94,0.16) 8px 16px);"></div>
+        <p style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1;color:#5A628C;">Presenteras i höst</p>
+        <span style="background:rgba(30,42,94,0.07);color:#5A628C;font-weight:600;font-size:15px;padding:6px 13px;border-radius:999px;">Kandidat nr 3</span>
+      </div>
+      <div data-anim="up" style="background:#FFFFFF;border:2px dashed #BA7517;border-radius:12px;padding:26px 22px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+        <div style="width:96px;height:96px;border-radius:50%;border:2px dashed #BA7517;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:40px;color:#BA7517;">?</div>
+        <p style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1;color:#1E2A5E;">Din plats?</p>
+        <span style="background:rgba(186,117,23,0.12);color:#BA7517;font-weight:600;font-size:15px;padding:6px 13px;border-radius:999px;">Ställ upp för din by</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="granska" data-screen-label="Granska oss" style="background:#1E2A5E;padding:clamp(48px,7vw,72px) clamp(16px,4vw,40px);">
+  <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px 40px;">
+    <p data-anim="up" style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:clamp(26px,3.4vw,34px);line-height:1.15;color:#FFFFFF;max-width:520px;">Granska oss — allt vi gör i fullmäktige är offentligt.</p>
+    <div data-anim="up" style="display:flex;flex-wrap:wrap;gap:12px;">
+      <a href="#granska" style="color:#FFFFFF;text-decoration:none;font-weight:600;font-size:17px;border:2px solid rgba(255,255,255,0.45);border-radius:999px;padding:11px 24px;transition:background 0.2s ease-out;" style-hover="background:rgba(255,255,255,0.12);">Alla motioner</a>
+      <a href="#granska" style="color:#FFFFFF;text-decoration:none;font-weight:600;font-size:17px;border:2px solid rgba(255,255,255,0.45);border-radius:999px;padding:11px 24px;transition:background 0.2s ease-out;" style-hover="background:rgba(255,255,255,0.12);">Så röstade vi</a>
+      <a href="#granska" style="color:#FFFFFF;text-decoration:none;font-weight:600;font-size:17px;border:2px solid rgba(255,255,255,0.45);border-radius:999px;padding:11px 24px;transition:background 0.2s ease-out;" style-hover="background:rgba(255,255,255,0.12);">Mötesprotokoll</a>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Bli medlem" style="background:#F5A81E;padding:clamp(56px,8vw,92px) clamp(16px,4vw,40px);overflow:hidden;">
+  <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 40px;">
+    <h2 data-anim="left" style="margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(44px,7.5vw,84px);line-height:0.95;color:#141B44;">Nu är det byarnas tur.</h2>
+    <a data-btn="1" href="#kontakt" style="background:#141B44;color:#FFFFFF;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:23px;text-transform:uppercase;letter-spacing:0.04em;padding:16px 34px;border-radius:8px;display:inline-flex;align-items:center;gap:10px;transition:filter 0.2s ease-out, transform 0.15s ease-out;" style-hover="filter:brightness(1.25);" style-active="transform:scale(0.98);">Bli medlem <span data-arrow="1" style="display:inline-block;">→</span></a>
+  </div>
+</section>
+
+<section data-screen-label="Senaste nytt" style="background:#FAF9F5;padding:clamp(64px,9vw,110px) clamp(16px,4vw,40px) clamp(48px,7vw,80px);">
+  <div style="max-width:1160px;margin:0 auto;">
+    <h2 data-anim="up" style="margin:0 0 clamp(28px,4.5vw,42px);font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(36px,5.5vw,58px);line-height:1;color:#1E2A5E;">Senaste nytt</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
+      <a data-anim="up" href="#granska" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.12);border-radius:12px;padding:26px 26px 30px;text-decoration:none;color:#1E2A5E;transition:transform 0.25s ease-out, box-shadow 0.25s ease-out;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,27,68,0.13);">
+        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">28 juni 2026</span>
+        <span style="display:block;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1.12;">Vårt svar på det öppna brevet från Rossön</span>
+      </a>
+      <a data-anim="up" href="#granska" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.12);border-radius:12px;padding:26px 26px 30px;text-decoration:none;color:#1E2A5E;transition:transform 0.25s ease-out, box-shadow 0.25s ease-out;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,27,68,0.13);">
+        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">12 juni 2026</span>
+        <span style="display:block;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1.12;">Därför säger vi nej till flytt av högstadiet</span>
+      </a>
+      <a data-anim="up" href="#granska" style="display:block;background:#FFFFFF;border:1px solid rgba(30,42,94,0.12);border-radius:12px;padding:26px 26px 30px;text-decoration:none;color:#1E2A5E;transition:transform 0.25s ease-out, box-shadow 0.25s ease-out;" style-hover="transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,27,68,0.13);">
+        <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:#BA7517;">2 juni 2026</span>
+        <span style="display:block;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;line-height:1.12;">Byaturnén i augusti — vi kommer till din by</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div style="background:#FAF9F5;">
+  <svg viewBox="0 0 1440 110" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="display:block;width:100%;height:clamp(64px,9vw,110px);margin-bottom:-1px;">
+    <g fill="#141B44">
+      <rect x="0" y="92" width="1440" height="18"></rect>
+      <polygon points="25,110 55,38 85,110"></polygon>
+      <polygon points="120,110 120,64 155,42 190,64 190,110"></polygon>
+      <polygon points="205,110 228,54 251,110"></polygon>
+      <polygon points="272,110 272,60 322,38 372,60 372,110"></polygon>
+      <polygon points="400,110 400,72 428,54 456,72 456,110"></polygon>
+      <polygon points="470,110 500,30 530,110"></polygon>
+      <rect x="570" y="48" width="34" height="62"></rect>
+      <polygon points="560,50 587,22 614,50"></polygon>
+      <rect x="584" y="4" width="5" height="18"></rect>
+      <rect x="578" y="9" width="17" height="4"></rect>
+      <rect x="604" y="70" width="70" height="40"></rect>
+      <polygon points="604,70 639,52 674,70"></polygon>
+      <polygon points="700,110 700,66 738,44 776,66 776,110"></polygon>
+      <polygon points="792,110 820,40 848,110"></polygon>
+      <polygon points="852,110 874,58 896,110"></polygon>
+      <polygon points="920,110 920,58 975,36 1030,58 1030,110"></polygon>
+      <polygon points="1060,110 1060,74 1086,56 1112,74 1112,110"></polygon>
+      <polygon points="1130,110 1162,26 1194,110"></polygon>
+      <polygon points="1220,110 1220,64 1256,44 1292,64 1292,110"></polygon>
+      <polygon points="1310,110 1338,48 1366,110"></polygon>
+      <polygon points="1385,110 1385,76 1410,58 1435,76 1435,110"></polygon>
+    </g>
+  </svg>
+</div>
+
+<footer id="kontakt" data-screen-label="Sidfot" style="background:#141B44;color:#FFFFFF;padding:clamp(40px,6vw,64px) clamp(16px,4vw,40px) 32px;">
+  <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:32px 48px;">
+    <div style="max-width:380px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="uploads/277553372_101235825887883_647042979823129934_n.jpg" alt="Rättvis Demokrati — logotyp" style="width:46px;height:46px;border-radius:10px;display:block;">
+        <span style="display:flex;flex-direction:column;line-height:1.08;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:23px;letter-spacing:0.02em;text-transform:uppercase;">Rättvis Demokrati</span>
+          <span style="font-size:14px;color:rgba(255,255,255,0.65);font-weight:600;">Strömsunds kommun</span>
+        </span>
+      </div>
+      <p style="margin:18px 0 0;font-size:18px;line-height:1.5;color:rgba(255,255,255,0.8);">Ett lokalt parti — hela vårt hjärta i Strömsund</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+      <a href="#kontakt" style="color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px;border-bottom:2px solid rgba(245,168,30,0.6);padding-bottom:1px;">Facebook: Rättvis Demokrati Strömsund</a>
+      <a href="mailto:info@rattvisdemokrati.se" style="color:#FFFFFF;text-decoration:none;font-weight:600;font-size:18px;border-bottom:2px solid rgba(245,168,30,0.6);padding-bottom:1px;">info@rattvisdemokrati.se</a>
+      <a data-btn="1" href="#kontakt" style="margin-top:8px;background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:0.04em;padding:13px 28px;border-radius:8px;display:inline-flex;align-items:center;gap:10px;transition:filter 0.2s ease-out, transform 0.15s ease-out;" style-hover="filter:brightness(0.93);" style-active="transform:scale(0.98);">Bli medlem <span data-arrow="1" style="display:inline-block;">→</span></a>
+    </div>
+  </div>
+  <p style="max-width:1160px;margin:40px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.14);font-size:15px;color:rgba(255,255,255,0.55);">© 2026 Rättvis Demokrati · Strömsunds kommun</p>
+</footer>
+
+<div data-sticky-bar="1" style="position:fixed;left:0;right:0;bottom:0;z-index:50;background:#141B44;padding:10px 16px 14px;display:flex;align-items:center;gap:14px;transform:translateY(110%);transition:transform 0.3s ease-out;box-shadow:0 -8px 28px rgba(0,0,0,0.35);">
+  <span style="color:#FFFFFF;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:19px;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">{{ days }} dagar kvar</span>
+  <a data-btn="1" href="#kontraktet" style="flex:1;background:#F5A81E;color:#141B44;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:0.04em;padding:13px 20px;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:8px;" style-active="transform:scale(0.98);">Läs Bykontraktet <span data-arrow="1" style="display:inline-block;">→</span></a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: &quot;100%&quot;, &quot;height&quot;: 900 },
+  &quot;animations&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Beteende&quot; },
+  &quot;stickyCta&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Beteende&quot; },
+  &quot;duotone&quot;: { &quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Foton&quot; }
+}">
+class Component extends DCLogic {
+  state = { days: 0 };
+
+  animOn() {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return (this.props.animations ?? true) && !reduced;
+  }
+
+  componentDidMount() {
+    this._timers = [];
+
+    // --- Countdown (election day 2026-09-13) ---
+    const target = new Date(2026, 8, 13);
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const days = Math.max(0, Math.round((target - today) / 86400000));
+    this._days = days;
+    if (this.animOn()) {
+      const t0 = performance.now(), dur = 900;
+      const step = (t) => {
+        const p = Math.min(1, (t - t0) / dur);
+        this.setState({ days: Math.round(days * (1 - Math.pow(1 - p, 3))) });
+        if (p < 1) this._raf = requestAnimationFrame(step);
+      };
+      this._raf = requestAnimationFrame(step);
+    } else {
+      this.setState({ days });
+    }
+
+    // --- Sticky mobile CTA bar ---
+    this._onScroll = () => this._updateSticky();
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    window.addEventListener('resize', this._onScroll);
+    this._updateSticky();
+
+    // --- Arrow nudge on button hover ---
+    this._over = (e) => {
+      const btn = e.target.closest && e.target.closest('[data-btn]');
+      if (!btn) return;
+      btn.querySelectorAll('[data-arrow]').forEach((ar) => {
+        ar.style.transition = 'transform 0.2s ease-out';
+        ar.style.transform = 'translateX(3px)';
+      });
+    };
+    this._out = (e) => {
+      const btn = e.target.closest && e.target.closest('[data-btn]');
+      if (!btn || (e.relatedTarget && btn.contains(e.relatedTarget))) return;
+      btn.querySelectorAll('[data-arrow]').forEach((ar) => { ar.style.transform = 'translateX(0)'; });
+    };
+    document.addEventListener('mouseover', this._over);
+    document.addEventListener('mouseout', this._out);
+
+    if (this.animOn()) this._setupAnims();
+    this._applyDuotone();
+  }
+
+  componentWillUnmount() {
+    (this._timers || []).forEach((t) => { clearTimeout(t); clearInterval(t); });
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._io) this._io.disconnect();
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('resize', this._onScroll);
+    document.removeEventListener('mouseover', this._over);
+    document.removeEventListener('mouseout', this._out);
+  }
+
+  componentDidUpdate() {
+    this._applyDuotone();
+    const on = this.props.animations ?? true;
+    if (!on && this._animsInit) { this._animsInit = false; this._forceVisible(); }
+    this._updateSticky();
+  }
+
+  _applyDuotone() {
+    const on = this.props.duotone ?? true;
+    if (this._lastDuo === on) return;
+    this._lastDuo = on;
+    document.querySelectorAll('[data-duo]').forEach((el) => { el.style.display = on ? 'block' : 'none'; });
+  }
+
+  _updateSticky() {
+    const bar = document.querySelector('[data-sticky-bar]');
+    if (!bar) return;
+    const hero = document.querySelector('[data-hero-section]');
+    const past = hero ? window.scrollY > hero.offsetTop + hero.offsetHeight - 60 : window.scrollY > 500;
+    const on = (this.props.stickyCta ?? true) && window.innerWidth < 760 && past;
+    bar.style.transform = on ? 'translateY(0)' : 'translateY(110%)';
+  }
+
+  // ---------- scroll animations ----------
+
+  _prepHide(el, tf) {
+    if (el._rdT === undefined) el._rdT = el.style.transition || '';
+    el.style.transition = 'none';
+    el.style.opacity = '0';
+    el.style.transform = tf;
+  }
+
+  _reveal(el, delay, dur = 500, finalTf = '', ease = 'ease-out') {
+    this._timers.push(setTimeout(() => {
+      el.style.transition = 'opacity ' + dur + 'ms ' + ease + ', transform ' + dur + 'ms ' + ease;
+      requestAnimationFrame(() => {
+        el.style.opacity = '1';
+        el.style.transform = finalTf || 'none';
+      });
+      this._timers.push(setTimeout(() => { if (!finalTf) el.style.transition = el._rdT || ''; }, dur + 120));
+    }, delay));
+  }
+
+  _setupAnims() {
+    this._animsInit = true;
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        this._io.unobserve(en.target);
+        this._run(en.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    const scan = () => {
+      document.querySelectorAll('[data-anim]').forEach((el) => {
+        if (el._rdBound) return;
+        el._rdBound = true;
+        this._prep(el);
+        this._io.observe(el);
+      });
+      if (!this._heroDone) {
+        let fresh = false;
+        document.querySelectorAll('[data-hero]').forEach((el) => {
+          if (el._rdBound) return;
+          el._rdBound = true; fresh = true;
+          this._prepHide(el, 'translateY(22px)');
+        });
+        const bar = document.querySelector('[data-hl-bar]');
+        if (bar && !bar._rdBound) { bar._rdBound = true; bar.style.transition = 'none'; bar.style.transform = 'scaleX(0)'; }
+        const txt = document.querySelector('[data-hl-text]');
+        if (txt && !txt._rdBound) { txt._rdBound = true; txt.style.transition = 'none'; txt.style.color = '#FAF9F5'; }
+        if (fresh && !this._heroStarted) {
+          this._heroStarted = true;
+          this._timers.push(setTimeout(() => this._heroSeq(), 250));
+        }
+      }
+    };
+    scan();
+    let n = 0;
+    const iv = setInterval(() => { scan(); if (++n > 20) clearInterval(iv); }, 400);
+    this._timers.push(iv);
+  }
+
+  _heroSeq() {
+    this._heroDone = true;
+    document.querySelectorAll('[data-hero]').forEach((el) => {
+      const o = +el.getAttribute('data-hero');
+      const extra = o > 2 ? 400 : 0;
+      this._reveal(el, (o - 1) * 150 + extra, 500);
+    });
+    this._timers.push(setTimeout(() => {
+      const bar = document.querySelector('[data-hl-bar]');
+      const txt = document.querySelector('[data-hl-text]');
+      if (bar) { bar.style.transition = 'transform 400ms ease-out'; bar.style.transform = 'scaleX(1)'; }
+      if (txt) { txt.style.transition = 'color 250ms ease-out 150ms'; txt.style.color = '#141B44'; }
+    }, 150 + 300));
+  }
+
+  _prep(el) {
+    const t = el.getAttribute('data-anim');
+    if (t === 'up') this._prepHide(el, 'translateY(18px)');
+    else if (t === 'left') this._prepHide(el, 'translateX(-44px)');
+    else if (t === 'quote') {
+      const m = el.querySelector('[data-qmark]');
+      if (m) this._prepHide(m, 'scale(0.4)');
+      const b = el.querySelector('[data-qbody]');
+      if (b) this._prepHide(b, 'translateY(16px)');
+    } else if (t === 'contract') {
+      this._prepHide(el, 'translateY(20px)');
+      el.querySelectorAll('[data-clause]').forEach((c) => this._prepHide(c, 'translateY(14px)'));
+      el.querySelectorAll('[data-tick]').forEach((p) => {
+        const len = p.getTotalLength ? p.getTotalLength() : 34;
+        p.style.transition = 'none';
+        p.style.strokeDasharray = String(len + 2);
+        p.style.strokeDashoffset = String(len + 2);
+      });
+      const sig = el.querySelector('[data-sig]');
+      if (sig) { sig.style.transition = 'none'; sig.style.clipPath = 'inset(-20% 105% -20% -5%)'; }
+      const st = el.querySelector('[data-stamp]');
+      if (st) { st.style.transition = 'none'; st.style.opacity = '0'; st.style.transform = 'scale(1.35) rotate(0deg)'; }
+    }
+  }
+
+  _run(el) {
+    const t = el.getAttribute('data-anim');
+    if (t === 'up') this._reveal(el, 0);
+    else if (t === 'left') this._reveal(el, 0, 550);
+    else if (t === 'quote') {
+      const m = el.querySelector('[data-qmark]');
+      if (m) this._reveal(m, 0, 450, '', 'cubic-bezier(0.2, 1.4, 0.4, 1)');
+      const b = el.querySelector('[data-qbody]');
+      if (b) this._reveal(b, 280);
+    } else if (t === 'contract') this._runContract(el);
+  }
+
+  _runContract(el) {
+    this._reveal(el, 0);
+    el.querySelectorAll('[data-clause]').forEach((c, i) => this._reveal(c, 320 + i * 80));
+    el.querySelectorAll('[data-tick]').forEach((p, i) => {
+      this._timers.push(setTimeout(() => {
+        p.style.transition = 'stroke-dashoffset 350ms ease-out';
+        p.style.strokeDashoffset = '0';
+      }, 900 + i * 120));
+    });
+    const sig = el.querySelector('[data-sig]');
+    if (sig) this._timers.push(setTimeout(() => {
+      sig.style.transition = 'clip-path 1000ms ease-out';
+      sig.style.clipPath = 'inset(-20% -5% -20% -5%)';
+    }, 1600));
+    const st = el.querySelector('[data-stamp]');
+    if (st) this._timers.push(setTimeout(() => {
+      st.style.transition = 'transform 300ms cubic-bezier(0.2, 1.5, 0.4, 1), opacity 150ms ease-out';
+      st.style.opacity = '1';
+      st.style.transform = 'scale(1) rotate(-10deg)';
+    }, 2700));
+  }
+
+  _forceVisible() {
+    document.querySelectorAll('[data-anim], [data-hero], [data-clause], [data-qmark], [data-qbody]').forEach((el) => {
+      el.style.transition = 'none'; el.style.opacity = ''; el.style.transform = '';
+    });
+    document.querySelectorAll('[data-tick]').forEach((p) => { p.style.strokeDasharray = ''; p.style.strokeDashoffset = ''; });
+    const sig = document.querySelector('[data-sig]');
+    if (sig) sig.style.clipPath = '';
+    const st = document.querySelector('[data-stamp]');
+    if (st) { st.style.opacity = ''; st.style.transform = ''; }
+    const bar = document.querySelector('[data-hl-bar]');
+    if (bar) bar.style.transform = '';
+    const txt = document.querySelector('[data-hl-text]');
+    if (txt) txt.style.color = '';
+    this.setState({ days: this._days || 0 });
+  }
+
+  renderVals() {
+    return { days: this.state.days };
+  }
+}
+</script>
+</body>
+</html>
