@@ -1,0 +1,42 @@
+name: Kommunbevakningen
+
+# Uppdaterar nyhetssidan (/nyheter) automatiskt två gånger om dagen.
+on:
+  schedule:
+    - cron: "0 5,17 * * *"   # 05:00 och 17:00 UTC (07/06 och 19/18 svensk tid)
+  workflow_dispatch: {}        # gör att den även kan köras manuellt
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kommunbevakning
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Uppdatera nyheter
+        run: python scripts/update_news.py
+
+      - name: Commit om något ändrats
+        run: |
+          git config user.name "Kommunbevakningen (bot)"
+          git config user.email "actions@users.noreply.github.com"
+          if [ -n "$(git status --porcelain nyheter/index.html)" ]; then
+            git add nyheter/index.html
+            git commit -m "Uppdatera Kommunbevakningen [skip ci]"
+            git push
+            echo "Nyheter uppdaterade."
+          else
+            echo "Inga ändringar."
+          fi

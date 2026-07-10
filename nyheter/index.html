@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kommunbevakningen — nyheter om Strömsund | Rättvis Demokrati</title>
+<meta name="description" content="Automatisk bevakning av nyheter om Strömsunds kommun från öppna källor — SVT, Östersunds-Posten och fler. Uppdateras två gånger om dagen. Rättvis Demokrati.">
+<link rel="canonical" href="https://rattvisdemokrati.pro/nyheter/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:title" content="Kommunbevakningen — nyheter om Strömsund">
+<meta property="og:description" content="Vi håller koll på kommunen åt dig. Nyheter om Strömsund, samlade och uppdaterade automatiskt.">
+<meta property="og:url" content="https://rattvisdemokrati.pro/nyheter/">
+<meta property="og:image" content="https://rattvisdemokrati.pro/assets/logo.jpg">
+<meta name="theme-color" content="#1E2A5E">
+<link rel="icon" type="image/jpeg" href="/assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=PT+Serif:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2A5E; --navy-deep:#141B44; --blue:#3B4CA8; --yellow:#F5A81E;
+    --amber:#BA7517; --cream:#FAF9F5; --ink:#1E2A5E; --muted:#3A4270;
+  }
+  html,body{margin:0;padding:0;background:#FFFFFF}
+  html{scroll-behavior:smooth}
+  body{font-family:'Source Sans 3',system-ui,sans-serif;color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.6}
+  *{box-sizing:border-box}
+  a{color:var(--blue)}
+  h1,h2,h3{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:700;letter-spacing:0.01em}
+  .wrap{max-width:1000px;margin:0 auto;padding-left:clamp(16px,4vw,40px);padding-right:clamp(16px,4vw,40px)}
+  .nav-link{border-bottom:3px solid transparent;transition:border-color .2s}
+  .nav-link:hover{border-bottom-color:var(--yellow)}
+  .src-link{color:#fff;text-decoration:none;border-bottom:2px solid rgba(245,168,30,.6);padding-bottom:1px;font-weight:600}
+  /* News list */
+  .feed{display:grid;gap:16px;margin-top:clamp(28px,4vw,40px)}
+  .news{background:#fff;border:1px solid rgba(30,42,94,0.14);border-left:6px solid var(--blue);border-radius:10px;padding:20px 24px}
+  .news-meta{margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--amber)}
+  .news-title{margin:6px 0 0;font-size:clamp(21px,2.6vw,27px);line-height:1.1}
+  .news-title a{color:var(--navy);text-decoration:none}
+  .news-title a:hover{color:var(--blue);text-decoration:underline}
+  .news-text{margin:9px 0 0;font-size:17px;line-height:1.5;color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header style="background:#FFFFFF;position:relative;z-index:5;border-bottom:1px solid rgba(30,42,94,0.08);">
+  <div class="wrap" style="padding-top:14px;padding-bottom:14px;display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;">
+    <a href="/" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy);">
+      <img src="/assets/logo.jpg" alt="Rättvis Demokrati — logotyp" style="width:50px;height:50px;border-radius:10px;display:block;">
+      <span style="display:flex;flex-direction:column;line-height:1.08;">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:25px;letter-spacing:0.02em;text-transform:uppercase;">Rättvis Demokrati</span>
+        <span style="font-size:14px;color:#5A628C;font-weight:600;">Strömsunds kommun</span>
+      </span>
+    </a>
+    <nav aria-label="Huvudmeny" style="display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap;margin-left:auto;">
+      <a href="/" class="nav-link" style="color:var(--navy);text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;">Start</a>
+      <a href="/aktuellt/" class="nav-link" style="color:var(--navy);text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;">Aktuellt</a>
+      <a href="/nyheter/" style="color:var(--navy);text-decoration:none;font-weight:700;font-size:17px;padding:6px 2px;border-bottom:3px solid var(--yellow);">Nyheter</a>
+      <a href="/alvgarden/" class="nav-link" style="color:var(--navy);text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;">Älvgården</a>
+      <a href="/#kontakt" class="nav-link" style="color:var(--navy);text-decoration:none;font-weight:600;font-size:17px;padding:6px 2px;">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section style="background:var(--navy);color:#fff;">
+  <div class="wrap" style="padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px);">
+    <p style="margin:0 0 14px;display:inline-block;border:2px solid rgba(255,255,255,0.4);border-radius:999px;padding:8px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.08em;text-transform:uppercase;">Kommunbevakningen</p>
+    <h1 style="margin:0;font-size:clamp(38px,7vw,74px);line-height:0.98;">Vi håller koll på<br>kommunen åt dig</h1>
+    <p style="margin:18px 0 0;font-size:clamp(19px,2.4vw,24px);max-width:640px;color:rgba(255,255,255,0.9);">Nyheter om Strömsunds kommun, samlade från flera källor på ett ställe. Sidan uppdateras automatiskt två gånger om dagen.</p>
+    <p style="margin:16px 0 0;font-size:16px;color:rgba(255,255,255,0.7);">Senast uppdaterad: <strong style="color:var(--yellow);"><!--UPDATED_START-->10 juli 2026, kl 08:49 (UTC)<!--UPDATED_END--></strong></p>
+  </div>
+</section>
+
+<!-- Feed -->
+<section style="background:var(--cream);padding:clamp(40px,6vw,72px) 0;">
+  <div class="wrap">
+    <div id="feed" class="feed">
+<!--FEED_START-->
+<article class="news"><p class="news-meta">Östersunds-Posten · 10 juli 2026</p><h2 class="news-title"><a href="https://www.op.se/stromsund/gudrun-enstam-92-stromsund/" target="_blank" rel="noopener">Gudrun Enstam, 92, Strömsund</a></h2></article>
+<article class="news"><p class="news-meta">Östersunds-Posten · 9 juli 2026</p><h2 class="news-title"><a href="https://www.op.se/stromsund/drangarnas-dramatiska-entre-fick-aka-helikopter-till-backe/" target="_blank" rel="noopener">Drängarnas dramatiska entré – fick åka helikopter till Backe</a></h2><p class="news-text">Bara timmar före spelningen på Fjällsjömarknan i Backe stod det klart att Drängarna inte skulle hinna fram i tid. Lösningen blev en helikopter. – Det var enda alternativet, säger Ulrica…</p></article>
+<article class="news"><p class="news-meta">Svenska Ridsportförbundet · 8 juli 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOYjVYcFdmbjBwR0FEVjRmcXczcEJiTFo0TUM4VmZTajYyM1hZQ0Y4VldBM2J0cjVxcndrTlo4TFpFRGExbEJmc3dWQWVfd3dwRkpmdmVaa0RnY3FEcm13cEtlX3ZIMU5SUlBsRktHcHk5MnVrNXNwVEFLMzZzTlg0dDE2RnNqSFlrSXhuNmhmdDFET3FzbmI5ck1jOUVyUVhETmxtd0xwRlVCV29abmVuMUdNdw?oc=5" target="_blank" rel="noopener">Strömsunds Ridklubb prisas för folkhälsa</a></h2></article>
+<article class="news"><p class="news-meta">SVT Nyheter Jämtland · 8 juli 2026</p><h2 class="news-title"><a href="https://www.svt.se/nyheter/lokalt/jamtland/dundermarknaden-i-stromsund-ar-i-gang" target="_blank" rel="noopener">Dundermarknaden i Strömsund är i gång</a></h2><p class="news-text">Efter sju år gör nu arrangörerna sin sista Dundermarknad i Strömsund, och än om ett väderprognosen visar på mulet lämnar dom över stafettpinnen med ett glatt humör. – Flaggan är på topp,…</p></article>
+<article class="news"><p class="news-meta">Affärsnytt Norr · 4 juli 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMidEFVX3lxTFBDUlRna2tMWXlIWF8xNUVXNGFtdGZXLXFvT21wSFRPVlN3VVB4R0tkNjFhT3N0a01lVW9NaTVTMkdaRG9wd1FOUDhTQVJXQjBqN2R4LXNEeGlKMk5Wa21FZGswSEd0ZldIeTQycHUzWnhvSXBZ?oc=5" target="_blank" rel="noopener">Misshandlade kvinna i Strömsunds kommun</a></h2></article>
+<article class="news"><p class="news-meta">Sveriges Radio · 23 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxNRlBmUVNVdDQwSDRmOUVxdWQwZDFuLVVLQzVVU1FtelY5U2xhMkNOV0staFdDeUNEZW8zczZxU3NnVjRwY1hvOFR5cW1TSGxaUTlIdU01cENpMWhpejVRRXVvMzAwV01aMGtPRk9zY1czRngwcEZ3NWgybmlmaVFrWXlydWdCUQ?oc=5" target="_blank" rel="noopener">Strömsunds kommun har stängt sex förskolor</a></h2></article>
+<article class="news"><p class="news-meta">ltz.se · 19 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxPdXV1aXlpeUZvc3JJOVVYc3BxbU9DeGlZWURxZExRRF9YSy02NVZPdlE4YjdIRVFiVVFrbF93b0g2cllVaDd4ZTctWE5CWC1JSG13RWFjSUdJMjViUDNPY0NtNHAzTXQzTkt0LVlLdHdYc1lmdUI0aTdjYzZicjd0Sg?oc=5" target="_blank" rel="noopener">LISTA: De 20 bäst avlönade i Strömsunds kommun</a></h2></article>
+<article class="news"><p class="news-meta">ltz.se · 18 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxOYThWZDdwQVVCOUpMZzFaZ2hOWENMWWhGVlE1R3NMT3k0cHdXZnVlUmpSQ1BiQVpQRW9yc0liaG45dGRKaVdvSWhRS1JUSXZxemtIbkZZSGFLeWVMS21CeHB3RUEwV3E0U3NEX0wwejhzVF9iUHdTQnZxb0xTTnNsekxlNlU?oc=5" target="_blank" rel="noopener">Fastighetschefen: ”Du kan få en nyckel i handen nu”</a></h2></article>
+<article class="news"><p class="news-meta">Affärsnytt Norr · 16 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxOck1xWUdNM2dMamNsZVBOd1h3SDFkeERRRVFwbU9ING1oZHVFV1dnWjdlTm5meWR2dk5TQ1FSRlpGc2phYlg5Z056cjdzTlRsN2lIb08wN0lXeGZUSVRHT0YzaW5sT0xleFJiSWNWY1dvY05mUDRHMEJVb0h0UmFhT05EdTNPS1lwQkE?oc=5" target="_blank" rel="noopener">Tydligare styrning och organisation i Strömsunds kommun</a></h2></article>
+<article class="news"><p class="news-meta">Jamtlands Tidning · 15 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxPbXhFVzUzTHgzZWg2bTgwY3c1WVpMMWJpVjFYelN6U2xwZzNNanJpbzktSnNrT1U0UkV4cDYwS05RYTgzdlpfTnJocWJILTRhSWxUYUMtcTdhLTQwOEZ6bWNpQ2QyM3IzZzFhWlZselVSMmdhVkRua2VXNGtMWUI1OC1DbGpDRnVzSHljbDFNR1BXSXlza2Y4dm1ZQ1BNRjh0NTJQQQ?oc=5" target="_blank" rel="noopener">(+) Skolinspektionen granskar Strömsunds kommun</a></h2></article>
+<article class="news"><p class="news-meta">ltz.se · 13 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxPUU40TWpHSFc5QmlqMkJSRUVmR1ZIc05PS2lXV0ZtWlJJQmNORTRfcFZPb1VfZTlraGZrOHBwamc4YmUtSE1nQ09uajhpOGQ2dTR4aVFaUnpqTV8xMFhtaVVwa0lrbTFMNFVYTWI3VERMUHZLMEJIdW9MaUhNeFp3UTl4Q3B0Qk1lY2sxZFFySHJuLWg3OHB5UWI0RW4wN0plVWVDb2JIU1NNc1RlTnVycnZHVkdRSXR2TmwzOXN0ZlFHejA?oc=5" target="_blank" rel="noopener">DEBATT: V: Vi vill förbättra förutsättningarna för skola och förskola i Strömsunds kommun</a></h2></article>
+<article class="news"><p class="news-meta">Newsworthy · 9 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPR2MzODh5TlY3czhCZlhRa1dtLUNXNTlHdTU3bFdaWjFKcXV3djhtRWlRRzduNjkyR0JyWFFtdEF3blBXdHhXTGFRVWlXM21VVHFaSzBZSjRmLVkwdGRZWFVVRi1lT3l2aV8ybVlTcFdpWHhMeFdTekpKeWs0RWpHWUl3dWc0LW9iMzdWZ1pXX3k1Z0gyZldKVGxwMWZlaGNqRkE?oc=5" target="_blank" rel="noopener">Toppbetyg för mest omtyckta campingen i Strömsund</a></h2></article>
+<article class="news"><p class="news-meta">Newsworthy · 8 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxNTEJOeVBjTnhQaEtqWUdxQ3ZGYjFVT0tPRnFiQzBPRmJsRHk4RHpjSXNnNV9tam5tbVkwcmNDZHNGOW1hRlNuN0FTRFphOUVPRFdiaVJ0UVlJbGExRS1kNE1OUUF0V1hMeXZQT19DSFp0eGRMMTFUZV9vQUFvNGdfWmRIdmJPQmdrNHhGNDN2U2dwTjNDUzhEMHR6ZHZGRWhvNVZwSDdkaGxUSHZSM21neWktbjd0YllFNWp4ODQ2c1lUelJPcHp3?oc=5" target="_blank" rel="noopener">Strömsund: Färre går till tandläkaren nu än före pandemin</a></h2></article>
+<article class="news"><p class="news-meta">Affärsnytt Norr · 3 juni 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMidkFVX3lxTE8yUnpKVnAwYVRrZjVGQ0FkUkFpb3MzU3YzMmxGa2phSEc4VHp0LWZYTmI2SXVMaWxNRFQxbEpEU2tvZ245bEdNSzRsamN0aHdTUWY4OHhabEVDbWhKNXU2aXJCV1lPeG9KUHF6Y01WVFlfRm1peXc?oc=5" target="_blank" rel="noopener">Nationaldagsfiranden i Strömsunds kommun</a></h2></article>
+<article class="news"><p class="news-meta">Östersunds-Posten · 19 maj 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTE9JMU1Uc2puQUd2NkxCTWFQaGdnZDdDTC14OXdDd0cwN2R5dTR5UUtlZGFYZDg1U0l4dlg2ZDVsa3lJZmd4LVhBVXRzeVVvMTRBbGI4R0pxNXU3SzBFcTF2S1F5cmNwQWhyTUNpXzdpYmZOSjd3d3BBSWo3Vkw0OEE?oc=5" target="_blank" rel="noopener">DEBATT: C: Bättre villkor behövs för Strömsunds företagare</a></h2></article>
+<article class="news"><p class="news-meta">Jamtlands Tidning · 19 maj 2026</p><h2 class="news-title"><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNeS0wY2FWQVY3b29mVUlHYkVIbDVmVVJfdmkxOE9ZYldiVk42d21NT2dGczRBZXUtdEtpS2VJQnRqNTVjOHZ5RFhrRUU1UXl5eW5hMUNCbkhYZXE2cVA1RkdYYkJCdThFSmlsOHctWU5NSlJiM1hLX3JHX0h6emdvWFpJLVNwT0dnc0MxSXNVdVRpQ2h5bDVYTjhvWmd6Z3RfbWd2WA?oc=5" target="_blank" rel="noopener">(+) Oro för ungdomsarbetslösheten i Strömsund</a></h2></article>
+<!--FEED_END-->
+    </div>
+
+    <p style="margin:clamp(28px,4vw,40px) 0 0;font-size:15px;line-height:1.6;color:#6B7192;max-width:720px;">
+      Kommunbevakningen samlar automatiskt in rubriker om Strömsunds kommun från öppna källor (bland andra SVT Nyheter, Östersunds-Posten och Google Nyheter). Rubriker och länkar leder till respektive källa — vi återger inte hela artiklar och står inte bakom innehållet. Urvalet görs maskinellt utifrån kommun- och ortsnamn.
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="background:var(--navy-deep);color:#fff;padding:clamp(40px,6vw,64px) 0 32px;">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:32px 48px;">
+    <div style="max-width:380px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="/assets/logo.jpg" alt="Rättvis Demokrati — logotyp" style="width:46px;height:46px;border-radius:10px;display:block;">
+        <span style="display:flex;flex-direction:column;line-height:1.08;">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:23px;letter-spacing:0.02em;text-transform:uppercase;">Rättvis Demokrati</span>
+          <span style="font-size:14px;color:rgba(255,255,255,0.65);font-weight:600;">Strömsunds kommun</span>
+        </span>
+      </div>
+      <p style="margin:18px 0 0;font-size:18px;line-height:1.5;color:rgba(255,255,255,0.8);">Ett lokalt parti — hela vårt hjärta i Strömsund</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;">
+      <span style="font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);">För mer information</span>
+      <span style="font-weight:600;font-size:18px;">Tore Hansson</span>
+      <a href="tel:+46705251207" class="src-link">070-525 12 07</a>
+      <a href="mailto:rattvisdemokrati@gmail.com" class="src-link">rattvisdemokrati@gmail.com</a>
+      <a href="https://www.facebook.com/rattvisdemokrati" target="_blank" rel="noopener" class="src-link">facebook.com/rattvisdemokrati</a>
+      <span style="font-size:16px;color:rgba(255,255,255,0.75);">Bli medlem: 100 kr/år · Bankgiro 5464-7268 · anmälan via mejl</span>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.14);display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:12px 24px;font-size:15px;color:rgba(255,255,255,0.55);">
+    <span>© 2026 Rättvis Demokrati · Strömsunds kommun</span>
+    <a href="/" style="color:rgba(255,255,255,0.72);text-decoration:none;border-bottom:1px solid rgba(245,168,30,0.45);padding-bottom:1px;">← Tillbaka till startsidan</a>
+  </div>
+</footer>
+
+</body>
+</html>
