@@ -3,7 +3,7 @@ name: Kommunbevakningen
 # Uppdaterar nyhetssidan (/nyheter) automatiskt två gånger om dagen.
 on:
   schedule:
-    - cron: "0 5,17 * * *"   # 05:00 och 17:00 UTC (07/06 och 19/18 svensk tid)
+    - cron: "17 5,17 * * *"  # 05:17 och 17:17 UTC — avlastad minut (mindre kö-fördröjning än :00)
   workflow_dispatch: {}        # gör att den även kan köras manuellt
 
 permissions:
@@ -18,10 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
