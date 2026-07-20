@@ -23,6 +23,8 @@ from xml.etree import ElementTree as ET
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGE = os.path.normpath(os.path.join(HERE, "..", "nyheter", "index.html"))
+SITEMAP = os.path.normpath(os.path.join(HERE, "..", "sitemap.xml"))
+SITEMAP_URL = "https://rattvisdemokrati.pro/nyheter/"
 
 MAX_ITEMS = 16
 TIMEOUT = 25
@@ -173,6 +175,32 @@ def replace_between(text, start, end, new_inner):
     return text[: s + len(start)] + new_inner + text[e:]
 
 
+def update_sitemap(iso_date):
+    """Sätt <lastmod> för nyhetssidan i sitemap.xml till dagens datum.
+
+    Rör bara den <url>-post vars <loc> är nyhetssidan — övriga sidors
+    lastmod lämnas orörda (de ändras bara när vi ändrar dem för hand).
+    """
+    try:
+        with open(SITEMAP, encoding="utf-8") as f:
+            xml = f.read()
+    except OSError as e:
+        sys.stderr.write(f"[warn] sitemap kunde inte läsas: {e}\n")
+        return
+
+    pattern = re.compile(
+        r"(<loc>\s*" + re.escape(SITEMAP_URL) + r"\s*</loc>\s*<lastmod>)([^<]*)(</lastmod>)"
+    )
+    new_xml, n = pattern.subn(r"\g<1>" + iso_date + r"\g<3>", xml)
+    if n == 0:
+        sys.stderr.write(f"[warn] hittade ingen lastmod för {SITEMAP_URL} i sitemap.xml\n")
+        return
+    if new_xml != xml:
+        with open(SITEMAP, "w", encoding="utf-8") as f:
+            f.write(new_xml)
+        print(f"Sitemap: lastmod för nyhetssidan satt till {iso_date}")
+
+
 def main():
     all_items = []
     for src in SOURCES:
@@ -200,10 +228,18 @@ def main():
 
     with open(PAGE, encoding="utf-8") as f:
         page = f.read()
+    original_cards = page[
+        page.find("<!--FEED_START-->") : page.find("<!--FEED_END-->")
+    ]
     page = replace_between(page, "<!--FEED_START-->", "<!--FEED_END-->", "\n" + cards + "\n")
     page = replace_between(page, "<!--UPDATED_START-->", "<!--UPDATED_END-->", updated)
     with open(PAGE, "w", encoding="utf-8") as f:
         f.write(page)
+
+    # Bumpa sitemap-datumet bara när nyhetslistan faktiskt ändrats — tidsstämpeln
+    # "uppdaterad kl X" ändras varje körning och räknas därför inte som ändring.
+    if original_cards.strip() != ("<!--FEED_START-->" + "\n" + cards + "\n").strip():
+        update_sitemap(now.strftime("%Y-%m-%d"))
 
     print(f"Klart: {len(items)} nyheter skrivna till {PAGE}")
     for it in items:
