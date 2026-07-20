@@ -32,8 +32,8 @@ jobs:
         run: |
           git config user.name "Kommunbevakningen (bot)"
           git config user.email "actions@users.noreply.github.com"
-          if [ -n "$(git status --porcelain nyheter/index.html)" ]; then
-            git add nyheter/index.html
+          if [ -n "$(git status --porcelain nyheter/index.html sitemap.xml)" ]; then
+            git add nyheter/index.html sitemap.xml
             git commit -m "Uppdatera Kommunbevakningen [skip ci]"
             git push
             echo "Nyheter uppdaterade."
